@@ -2,12 +2,6 @@
 #include <algorithm>
 #include <type_traits>
 
-static_assert(std::is_default_constructible<StackWithMin>::value == true, "StackWithMin should have default construcor");
-static_assert(std::is_copy_constructible<StackWithMin>::value == false, "StackWithMin has to be noncopyable");
-static_assert(std::is_copy_assignable<StackWithMin>::value == false, "StackWithMin has to be noncopyable");
-static_assert(std::is_move_constructible<StackWithMin>::value == false, "StackWithMin has to be nonmoveable");
-static_assert(std::is_move_assignable<StackWithMin>::value == false, "StackWithMin has to be nonmoveable");
-
 
 StackWithMin::item StackWithMin::make_item(int value) {
     if (m_stack.empty()) {
@@ -37,4 +31,10 @@ bool StackWithMin::isEmpty() const {
 }
 
 
-
+static_assert( std::is_default_constructible<StackWithMin>::value, "StackWithMin should have default constructor");
+#if defined(_MSC_VER) && _MSC_VER > 1800
+static_assert(!std::is_copy_constructible<StackWithMin>::value, "StackWithMin has to be noncopyable");
+static_assert(!std::is_copy_assignable<StackWithMin>::value, "StackWithMin has to be noncopyable");
+static_assert(!std::is_move_constructible<StackWithMin>::value, "StackWithMin has to be nonmoveable");
+static_assert(!std::is_move_assignable<StackWithMin>::value, "StackWithMin has to be nonmoveable");
+#endif

@@ -7,7 +7,7 @@ public:
     StackWithMin() = default;
     StackWithMin(const StackWithMin&) = delete;
     StackWithMin& operator=(const StackWithMin&) = delete;
-    
+
     void push(int value);
     void pop();
 
@@ -16,6 +16,7 @@ public:
 
     bool isEmpty() const;
 private:
+
     struct item final {
         int value;
         int min_value;
