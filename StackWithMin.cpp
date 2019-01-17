@@ -1,6 +1,7 @@
 #include "StackWithMin.h"
 #include <algorithm>
 #include <type_traits>
+#include <cassert>
 
 
 StackWithMin::item StackWithMin::make_item(int value) {
@@ -15,14 +16,17 @@ void StackWithMin::push(int value) {
 }
 
 void StackWithMin::pop() {
+    assert(!m_stack.empty());
     m_stack.pop();
 }
 
 int StackWithMin::top() const {
+    assert(!m_stack.empty());
     return m_stack.top().value;
 }
 
 int StackWithMin::min() const {
+    assert(!m_stack.empty());
     return m_stack.top().min_value;
 }
 
