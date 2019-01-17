@@ -1,2 +1,2 @@
 # stack_min_exercise
-the simple stack of int with storing of minimum of them
+The aim of this exercise is to write a class which implements an integer stack, together with a member function that returns the minimum of all the integers currently in the stack.
